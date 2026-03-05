@@ -39,4 +39,24 @@ public class Lista {
         }
         System.out.println("null");
     }
+    
+    public void insertarPosicion(int indice, int dato){
+        Nodo nuevo = new Nodo(dato);
+        if(indice == 0){    
+            nuevo.siguiente = cabeza;
+            cabeza = nuevo;
+            return;
+        }
+        
+        Nodo anterior = null;
+        Nodo actual = this.cabeza;
+        
+        for(int i = 0; i < indice; i++){
+            anterior = actual;
+            actual =actual.siguiente;
+        }
+        
+        nuevo.siguiente = actual;
+        anterior.siguiente = nuevo;
+    }
 }
