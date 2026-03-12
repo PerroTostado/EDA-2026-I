@@ -10,6 +10,10 @@ public class Lista {
         this.tamaño = 0;
     }
 
+    public int getTamaño(){
+        return this.tamaño;
+    }
+    
     public void agregarInicio(int dato){
         Nodo nuevo = new Nodo(dato);
         nuevo.siguiente = cabeza;
