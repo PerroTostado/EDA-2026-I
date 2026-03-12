@@ -60,8 +60,6 @@ public class Lista {
         tamaño++;
     }
 
-    // ───────────── ELIMINAR ─────────────
-
     public void eliminarInicio(){
         if (cabeza == null){
             System.out.println("La lista está vacía.");
