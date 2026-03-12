@@ -14,6 +14,8 @@ public class Lista_Enlazada {
         L.insertarPosicion(0, 7);
         
         L.imprimir();
+        L.eliminarFinal();
+        L.imprimir();
     }
     
 }
