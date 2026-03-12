@@ -1,5 +1,7 @@
 
-package tda;
+package Listas_Enlazadas;
+
+import Listas_Enlazadas.Lista;
 
 public class Lista_Enlazada {
 

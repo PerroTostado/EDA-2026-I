@@ -1,5 +1,5 @@
 
-package tda;
+package Listas_Enlazadas;
 
 public class Nodo {
     public int dato;
