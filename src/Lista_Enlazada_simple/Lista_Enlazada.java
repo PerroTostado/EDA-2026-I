@@ -1,5 +1,5 @@
 
-package tda;
+package Lista_Enlazada_simple;
 
 public class Lista_Enlazada {
 
@@ -13,6 +13,8 @@ public class Lista_Enlazada {
         
         L.insertarPosicion(0, 7);
         
+        L.imprimir();
+        L.eliminarFinal();
         L.imprimir();
     }
     
