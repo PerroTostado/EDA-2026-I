@@ -72,4 +72,32 @@ public class Lista {
         }
         tamaño++;
     }
+    
+    public void insertarPosicion( int dato, int index){
+        
+        //Validación
+        if(index < 0 || index > tamaño){
+            System.out.println("Dato inválido...");
+            return;
+        }else if(index == 0){
+            insertarInicial(dato);
+        }else if (index == tamaño){
+            insertarFinal(dato);
+        }
+        
+        Nodo nuevo = new Nodo(dato);
+        Nodo actual = this.cabeza;
+        
+        //Posicionarse al nodo anterior donde se quiere agregar
+        for(int i = 0; i < index-1; i++){
+            actual = actual.siguiente;
+        }
+        
+        nuevo.siguiente = actual.siguiente;
+        nuevo.anterior = actual;
+        actual.siguiente.anterior = nuevo;
+        actual.siguiente = nuevo;
+        
+        tamaño++;
+    }
 }
