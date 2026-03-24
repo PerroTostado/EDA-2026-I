@@ -84,6 +84,8 @@ public class Lista {
             tamaño--;
             return;
         }
+        
+        //Si hay más nodos
         Nodo actual = this.cabeza;
         while(actual.siguiente.siguiente != null){
             actual = actual.siguiente;
