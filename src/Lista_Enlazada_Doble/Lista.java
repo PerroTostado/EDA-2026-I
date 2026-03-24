@@ -100,4 +100,93 @@ public class Lista {
         
         tamaño++;
     }
+    
+    public void eliminarInicial(){
+        if (cabeza == null){
+            System.out.println("La lista está vacía.");
+            return;
+        }
+        
+        //Solo hay un nodo
+        if(cabeza == cola){
+            cabeza = null;
+            cola = null;
+            return;
+        }else{
+            cabeza = cabeza.siguiente;
+            cabeza.anterior = null;
+        }
+        tamaño--;
+    }
+    
+    public void eliminarFinal(){
+        if (cabeza == null){
+            System.out.println("La lista está vacía.");
+            return;
+        }
+        //Solo hay un nodo
+        if(cabeza == cola){
+            cabeza = null;
+            cola = null;
+            return;
+        }else{
+            cola = cola.anterior;
+            cola.siguiente = null;
+        }
+        tamaño--;
+    }
+    
+    public void eliminarPosicion(int index){
+        if (cabeza == null){
+            System.out.println("La lista está vacía.");
+            return;
+        }
+        if (index < 0 || index >= tamaño){
+            System.out.println("Índice fuera de rango.");
+            return;
+        }
+        if (index == 0){
+            eliminarInicial();
+            return;
+        }
+        if(index == tamaño-1){
+            eliminarFinal();
+            return;
+        }
+        
+        Nodo actual = cabeza;
+        
+        //Recorrer la lista hasta la posición 
+        for(int i = 0; i<index; i++){
+            actual = actual.siguiente;
+        }
+        
+        //Reconectar los nodos anterior y siguiente
+        actual.anterior.siguiente = actual.siguiente;
+        actual.siguiente.anterior = actual.anterior;
+        
+        tamaño--;
+    }
+    
+    public int buscarValor(int dato){
+        if (cabeza == null){
+            System.out.println("La lista está vacía.");
+            return -1;
+        }
+        
+        Nodo actual = cabeza;
+        int posicion = 0;
+        
+        while(actual != null){
+            if(actual.dato == dato){
+                System.out.println("Dato: "+dato+" encontrado en Posición: "+ posicion);
+                return posicion;
+            }
+            actual = actual.siguiente;
+            posicion++;
+        }
+        
+        System.out.println("Dato: "+dato+" no encontrado en la lista...");
+        return -1;
+    }
 }

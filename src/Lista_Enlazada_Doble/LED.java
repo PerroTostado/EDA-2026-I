@@ -23,6 +23,25 @@ public class LED {
         L.insertarPosicion(8, 4);
         System.out.println(L.getTamaño());
         
+        System.out.println("----------LISTA ORIGINAL----------");
         L.imprimir();
+        
+        System.out.println("----------ELIMINANDO EL FINAL----------");
+        L.eliminarFinal();
+        System.out.println(L.getTamaño());
+        L.imprimir();
+        
+        System.out.println("----------ELIMINANDO EL INICIAL----------");
+        L.eliminarInicial();
+        System.out.println(L.getTamaño());
+        L.imprimir();
+        
+        System.out.println("----------ELIMINANDO EN CUALQUIER POSICION----------");
+        L.eliminarPosicion(4);
+        System.out.println(L.getTamaño());
+        L.imprimir();
+        
+        System.out.println("----------BUSCAR DATO----------");
+        L.buscarValor(8);
     }
 }
