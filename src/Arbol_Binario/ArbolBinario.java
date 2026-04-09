@@ -122,4 +122,72 @@ public class ArbolBinario {
             }
         }
     }
+    
+    //Para buscar un nodo
+    public boolean buscar (int dato){
+        return buscar(raiz,dato);
+    }
+    
+    private boolean buscar(Nodo actual, int dato){
+        if(actual == null){
+            return false;
+        }
+        
+        if( actual.dato == dato){
+            return true;
+        }
+        
+        if(dato < actual.dato){
+            return buscar(actual.hijoIzq, dato);
+        }else{
+            return buscar(actual.hijoDer, dato);
+        }
+    }
+    
+    //Para eliminar un nodo
+    public void eliminar(int dato){
+        raiz = eliminar(raiz, dato);
+    }
+    
+    private Nodo eliminar(Nodo actual, int dato){
+        if(actual == null){
+            System.out.println("El nodo " + dato + " no existe...");
+            return null;
+        }
+        
+        if(dato < actual.dato){
+            actual.hijoIzq = eliminar(actual.hijoIzq, dato);
+        }else if(dato > actual.dato){
+            actual.hijoDer = eliminar(actual.hijoDer, dato);
+        }else{
+            
+            // Caso 1: Nodo sin hijos
+            if(actual.hijoDer == null && actual.hijoIzq == null){
+                return null;
+            }
+            
+            //Caso 2: Nodo con un solo hijo
+            if(actual.hijoIzq == null){
+                return actual.hijoDer;
+            }
+            if(actual.hijoDer == null){
+                return actual.hijoIzq;
+            }
+            
+            //Caso 3: Nodo con 2 hijos
+            Nodo sucesor = encontrarMinimo(actual.hijoDer);
+            
+            actual.dato = sucesor.dato;
+            actual.hijoDer = eliminar(actual.hijoDer, sucesor.dato);
+        }
+        return actual;
+    }
+    
+    //Metodo auxiliar para el metodo eliminar
+    private Nodo encontrarMinimo(Nodo actual){
+        while(actual.hijoIzq != null){
+            actual = actual.hijoIzq;
+        }
+        return actual;
+    }
 }
