@@ -18,8 +18,15 @@ public class main {
         AB.insertarNodo(3);
         AB.insertarNodo(2);
         AB.insertarNodo(13);
+        AB.insertarNodo(24);
         
         AB.mostrarArbol();
-        AB.recorridoAnchura();
+        //AB.recorridoAnchura();
+        
+        System.out.println(AB.buscar(1));
+        
+        AB.eliminar(6);
+        AB.mostrarArbol();
+        
     }
 }
