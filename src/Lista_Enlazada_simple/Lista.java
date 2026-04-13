@@ -116,4 +116,42 @@ public class Lista {
         anterior.siguiente = actual.siguiente;
         tamaño--;
     }
+    
+    /**
+        Como la lista está ordenada, los duplicados siempre
+        están juntos, así que solo necesitamos comparar
+        cada nodo con el nodo siguiente.
+    */
+   public void eliminarDuplicado() {
+
+       // Si la lista está vacía no hay nada que hacer
+       if (cabeza == null) {
+           System.out.println("La lista está vacía.");
+           return;
+       }
+
+       Nodo actual = cabeza;
+
+       // Recorremos la lista mientras haya un nodo siguiente
+       while (actual.siguiente != null) {
+
+           // Comparamos el dato del nodo actual con el del siguiente
+           if (actual.dato == actual.siguiente.dato) {
+
+               // ¡Duplicado encontrado!
+               // "Saltamos" el nodo siguiente apuntando
+               // directamente al nodo que está después de él.
+               actual.siguiente = actual.siguiente.siguiente;
+
+               // Reducimos el tamaño de la lista
+               tamaño--;
+
+           } else {
+
+               // Si no son iguales, simplemente avanzamos
+               // al siguiente nodo y seguimos comparando
+               actual = actual.siguiente;
+           }
+       }
+   }
 }
